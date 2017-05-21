@@ -1,7 +1,8 @@
 var express = require('./config/express')
+var portNumber = 1234;
 
 var app = express();
-app.listen(1234);
+app.listen(portNumber);
 module.exports = app;
 
-console.log('Server is running at port number.');
+console.log(`Server is running at port number: ${portNumber}.`);
