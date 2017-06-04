@@ -6,8 +6,11 @@ var compression = require('compression');
 module.exports = function () {
     var app = express();
 
-    app.use(morgan('dev'));
-    app.use(compression());
+    if (process.env.NODE_ENV === 'development') {
+        app.use(morgan('dev'));
+    } else {
+        app.use(compression());
+    }
 
     app.use(bodyParser.urlencoded({
         extended: true
